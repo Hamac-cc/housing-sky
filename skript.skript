@@ -1,0 +1,5 @@
+command /create <text>:
+    trigger:
+        send "&2[&bHousing sky&2] &rCreating..." to player
+        execute console command "mv clone \tempsky %arg 1%_%player%"
+        send "&2[&bHousing&2] &rSuccses!" to player
