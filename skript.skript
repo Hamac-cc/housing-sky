@@ -1,5 +1,19 @@
 command /create <text>:
     trigger:
-        send "&2[&bHousing sky&2] &rCreating..." to player
+        send "&2[&bHousing&2] &rCreating..." to player
         execute console command "mv clone \tempsky %arg 1%_%player%"
+        send "&2[&bHousing&2] &rSuccses!" to player
+command /server <text> <text>:
+    trigger:
+        send "&2[&bHousing&2] &c%arg 1%&7(%arg 1%_%arg 2%)&r サーバーへ移動します" to player
+        send "&7%player% --> %arg 1%_%arg 2%" to arg 2
+        execute console command "mvtp %player% %arg 1%_%arg 2%"
+        send "&2[&bHousing&2] &rSuccses!" to player
+command /remove <text>:
+    trigger:
+        execute console command "mv delete %arg 1%_%player%"
+        send "&2[&bHousing&2] &r削除するには10秒以内に&c/do &rを実行してください。" to player
+command /do:
+    trigger:
+        execute console command "mvconfirm"
         send "&2[&bHousing&2] &rSuccses!" to player
